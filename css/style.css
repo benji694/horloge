@@ -10,7 +10,7 @@
     margin: 1em;
 }
 .barre{
-    border: solid 2px white;
+    border: solid 5px white;
     padding: 5em;
 }
 #heure, #minute{
