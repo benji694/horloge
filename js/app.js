@@ -2,6 +2,9 @@ const nb1 = document.querySelector('#nb1');
 const nb2 = document.querySelector('#nb2');
 const nb3 = document.querySelector('#nb3');
 const nb4 = document.querySelector('#nb4');
+
+
+
 let heure_dizaine = 2;
 let heure_unité = 4;
 let minute_dizaine = 0;
@@ -48,25 +51,34 @@ const numéros = {
 
 }
 
-const chiffres = document.querySelectorAll('.barre');
 
-
-function décompte(){
+function refresh(){
+    const chiffres = document.querySelectorAll('.barre');
     for(let i = 0; i < chiffres.length; i++){
         chiffres[i].className = 'barre'
     }
-    if(minute_unité < 0){
-        minute_unité = 9;
-        minute_dizaine -= 1;
+}
+
+function décompte(){
+    refresh();
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+
+    if(hours < 10){
+        hours = '0' + hours;
     }
-    if(minute_dizaine < 0){
-        minute_dizaine = 9;
-        heure_unité -= 1;
+    if(minutes < 10){
+        minutes = '0' + minutes;
     }
-    if(heure_unité == 0){
-        heure_unité = 9;
-        heure_dizaine -= 1;
-    }
+
+    minute_unité = minutes.toString().split('')[1];
+    minute_dizaine = minutes.toString().split('')[0];
+    heure_unité = hours.toString().split('')[1];
+    heure_dizaine = hours.toString().split('')[0];
+    
+
+
     let txt = 'numéro' + minute_unité;
     numéros[txt](nb4);
     let txt2 = 'numéro' + minute_dizaine;
@@ -75,8 +87,8 @@ function décompte(){
     numéros[txt3](nb2);
     let txt4 = 'numéro' + heure_dizaine;
     numéros[txt4](nb1);
-    minute_unité--;
+
 }
 
-
 let interval = setInterval(décompte, 1000)
+
