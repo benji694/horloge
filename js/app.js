@@ -4,7 +4,7 @@ const nb3 = document.querySelector('#nb3');
 const nb4 = document.querySelector('#nb4');
 let heure_dizaine = 2;
 let heure_unité = 4;
-let minute_dizaine = 5;
+let minute_dizaine = 0;
 let minute_unité = 0;
 
 
@@ -55,11 +55,11 @@ function décompte(){
     for(let i = 0; i < chiffres.length; i++){
         chiffres[i].className = 'barre'
     }
-    if(minute_unité == 0){
+    if(minute_unité < 0){
         minute_unité = 9;
         minute_dizaine -= 1;
     }
-    if(minute_dizaine == 0){
+    if(minute_dizaine < 0){
         minute_dizaine = 9;
         heure_unité -= 1;
     }
@@ -71,6 +71,10 @@ function décompte(){
     numéros[txt](nb4);
     let txt2 = 'numéro' + minute_dizaine;
     numéros[txt2](nb3);
+    let txt3 = 'numéro' + heure_unité;
+    numéros[txt3](nb2);
+    let txt4 = 'numéro' + heure_dizaine;
+    numéros[txt4](nb1);
     minute_unité--;
 }
 
