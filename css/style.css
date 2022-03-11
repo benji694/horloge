@@ -4,23 +4,32 @@
     align-items: center;
     padding: 2em;
 }
-
 #nb1, #nb2, #nb3, #nb4{
     width: 150px;
     padding: 10em 0;
     margin: 1em;
 }
-
-#nb1 div, #nb2 div, #nb3 div, #nb4 div{
+.barre{
     border: solid 2px white;
     padding: 5em;
 }
-
 #heure, #minute{
     display: flex;
 }
-
 h2{
     color: white;
     font-size: 10em;
+}
+
+.haut{
+    border-top-color: black;
+} 
+.bas{
+    border-bottom-color: black;
+}
+.gauche{
+    border-left-color: black;
+}
+.droite{
+    border-right-color: black;
 }
